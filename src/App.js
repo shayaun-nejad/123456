@@ -3,7 +3,11 @@ import { Switch, Route, NavLink } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import Helmet from 'react-helmet';
 
+import { imagePath } from './utils/assetUtils';
+
 import * as metadata from './metadata';
+
+import './main.scss';
 
 const LoadableHome = Loadable({
   loader: () => import(/* webpackChunkName: 'home' */ './components/Home'),
@@ -31,12 +35,15 @@ const App = () => (
     />
 
     <nav>
-      <NavLink exact to="/" activeClassName="active">
-        Home
-      </NavLink>{' '}
-      <NavLink exact to="/about" activeClassName="active">
-        About
-      </NavLink>
+      <img src={imagePath('xerxes.jpg')} id="logo" alt="not found" />
+      <div>
+        <NavLink exact to="/" activeClassName="active">
+          <span>Home</span>
+        </NavLink>{' '}
+        <NavLink exact to="/about" activeClassName="active">
+          <span>About</span>
+        </NavLink>
+      </div>
     </nav>
 
     <div className="main">
