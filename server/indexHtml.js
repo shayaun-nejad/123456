@@ -24,7 +24,8 @@ const preloadScripts = bundles => {
   return [...jsFilePaths, ...bundleFilePaths]
     .map(
       jsFilePath =>
-        `<link rel="preload" as="script" href="${jsFilePath}"></script>`
+        `<link rel="preload" as="script" href="${jsFilePath}">
+        </script>`
     )
     .join('');
 };
@@ -66,6 +67,7 @@ const IndexHtml = ({ helmet, initialState, markup, bundles }) => {
     <!doctype html>
     <html lang="en" ${htmlAttrs}>
       <head>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
         ${helmet.title.toString()}
         ${helmet.meta.toString()}
         ${preloadScripts(bundles)}

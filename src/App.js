@@ -35,13 +35,16 @@ const App = () => (
     />
 
     <nav>
-      <img src={imagePath('xerxes.jpg')} id="logo" alt="not found" />
+      <img src={imagePath('logo.png')} id="logo" alt="not found" />
       <div>
-        <NavLink exact to="/" activeClassName="active">
+        <NavLink exact to="/" activeClassName="active" id="link1">
           <span>Home</span>
         </NavLink>{' '}
-        <NavLink exact to="/about" activeClassName="active">
-          <span>About</span>
+        <NavLink exact to="/about" activeClassName="active" id="link1">
+          <span>Notifications</span>
+        </NavLink>
+        <NavLink exact to="#" activeClassName="active" id="link1">
+          <span>Account</span>
         </NavLink>
       </div>
     </nav>
@@ -52,8 +55,6 @@ const App = () => (
         <Route path="/about" component={LoadableAbout} />
       </Switch>
     </div>
-
-    <footer />
   </div>
 );
 

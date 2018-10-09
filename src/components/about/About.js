@@ -1,17 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ReactTwitchEmbedVideo from 'react-twitch-embed-video';
 
-import { imagePath } from '../../utils/assetUtils';
-import styles from './about.scss';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
-class About extends Component {
-  render() {
-    return (
-      <div>
-        <h1 className={styles.title}>About page</h1>
-        <img className={styles.reactLogo} src={imagePath('react.svg')} alt="" />
-      </div>
-    );
+import './about.scss';
+
+const styles = {
+  root: {
+    display: 'flex',
+    flexDirection: 'row'
   }
+};
+
+function About(props) {
+  const { classes } = props;
+
+  return (
+    <div className={classes.root} id="root">
+      <ReactTwitchEmbedVideo channel="Ninja" height={100} width={100} />
+    </div>
+  );
 }
 
-export default About;
+About.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(About);
